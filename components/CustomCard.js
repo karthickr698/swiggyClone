@@ -10,7 +10,7 @@ import {
 import { images, SIZES, COLORS, FONTS } from '../constants'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const CustomCard=({item,categories,navigation})=>{
+const CustomCard=({item,categories,navigation,vertical})=>{
 
     const getCategoryNameById=(id) => {
         let category = categories.filter(a => a.id == id)
@@ -29,7 +29,7 @@ const CustomCard=({item,categories,navigation})=>{
             }
         >
             <View style={styles.cont}>
-                <View style={{paddingLeft:8}}>
+                <View>
                     <View
                         style={{
                             marginBottom: SIZES.padding
@@ -39,7 +39,7 @@ const CustomCard=({item,categories,navigation})=>{
                             source={item?item.photo:images.burger_restaurant_1}
                             resizeMode="cover"
                             style={{
-                                width: 125,
+                                width: vertical?140:115,
                                 height: 165,
                                 borderRadius: SIZES.radius1
                             }}
@@ -50,7 +50,7 @@ const CustomCard=({item,categories,navigation})=>{
                                 position: 'absolute',
                                 bottom: -10,
                                 height: 40,
-                                width: 115,
+                                width: vertical?130:105,
                                 left:5,
                                 backgroundColor: COLORS.primary,
                                 borderRadius:SIZES.radius1,
@@ -59,13 +59,13 @@ const CustomCard=({item,categories,navigation})=>{
                                 ...styles.shadow
                             }}
                         >
-                            <Text style={{ ...FONTS.h2,fontWeight:'bold',color:COLORS.white, }}>{item?item.offer:'50'}% Offer</Text>
+                            <Text style={{ fontSize:vertical?SIZES.h3:SIZES.h4,fontWeight:'bold',color:COLORS.white, }}>{item?item.offer:'50'}% Offer</Text>
                         </View>
                     </View>
                 </View>
                 <View style={{paddingHorizontal:SIZES.paddingText*3}}>
-                    <Text style={{...FONTS.h2,fontWeight:'bold',opacity:0.8,paddingBottom:SIZES.paddingText}}>{item.name}</Text>
-                    <View style={{...styles.flexCont,paddingBottom:SIZES.paddingText}}>
+                    <Text style={{...FONTS.h4,fontWeight:'bold',opacity:0.8,paddingBottom:SIZES.paddingText1}}>{item.name}</Text>
+                    <View style={{...styles.flexCont,paddingBottom:SIZES.paddingText1}}>
                         {
                             item.categories.map((categoryId,i) => {
                                 return (
@@ -73,7 +73,7 @@ const CustomCard=({item,categories,navigation})=>{
                                         style={styles.flexCont}
                                         key={categoryId}
                                     >
-                                        <Text style={{ ...FONTS.body3 }}>{getCategoryNameById(categoryId)}</Text>
+                                        <Text style={{ ...FONTS.body4 }}>{getCategoryNameById(categoryId)}</Text>
                                         {i+1!==item.categories.length?
                                             <Text style={{ ...FONTS.h3, color: COLORS.darkgray }}>, </Text>
                                         :null}
@@ -82,19 +82,19 @@ const CustomCard=({item,categories,navigation})=>{
                             })
                         }
                     </View>
-                    <Text style={{...FONTS.body3,paddingBottom:SIZES.padding}}>{item.location.name}, {item.location.distance} kms</Text>
-                    <View style={{...styles.flexCont,paddingBottom:SIZES.paddingText}}>
+                    <Text style={{...FONTS.body4,paddingBottom:SIZES.paddingText1}}>{item.location.name}, {item.location.distance} kms</Text>
+                    <View style={{...styles.flexCont,paddingBottom:SIZES.paddingText1}}>
                         <Icon 
                             name="star" 
-                            size={20} 
+                            size={14} 
                             style={{
                                 opacity:0.6,
-                                paddingRight:SIZES.padding,
-                                paddingTop:1
+                                paddingRight:SIZES.paddingText,
+                                paddingTop:6
                             }} 
                             color='black'
                         />
-                        <Text style={{...FONTS.body3,fontWeight:'bold',color:'black',opacity:0.7,display:'flex',flexDirection:'row'}}>
+                        <Text style={{...FONTS.body5,fontWeight:'bold',color:'black',opacity:0.7,display:'flex',flexDirection:'row'}}>
                             {item.rating}
                             <View style={{position:'absolute'}}>
                                 <Icon 
@@ -141,7 +141,7 @@ const CustomCard=({item,categories,navigation})=>{
                                 height: 25
                             }}
                         />
-                        <Text style={{fontSize:SIZES.body3,paddingLeft:10,paddingTop:1}}>Use SWIGGYIT</Text>
+                        <Text style={{fontSize:SIZES.body4,paddingLeft:10,paddingTop:1}}>Use SWIGGYIT</Text>
                     </View>
                     
                 </View>
@@ -169,13 +169,13 @@ const styles = StyleSheet.create({
     cont:{
         display:'flex',
         flexDirection:"row",
-        padding:SIZES.padding,
-        backgroundColor:COLORS.white
+        paddingHorizontal:SIZES.paddingText,
+        backgroundColor:COLORS.white,
+        marginHorizontal:SIZES.paddingText
     },
     mainCont:{
         backgroundColor:COLORS.white,
         paddingBottom:20,
-        width:400
     },
 })
 

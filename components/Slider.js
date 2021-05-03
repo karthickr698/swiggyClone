@@ -49,12 +49,13 @@ const Slider=()=>{
           imageKey={'banner'}
           local
           timer={2000}
+          width={300}
           component={<Preview />}
           indicatorActiveWidth={10}
           indicatorActiveColor={COLORS.primary}
           animation
-          contentContainerStyle={{paddingHorizontal: 16}}
           onPress={item => {console.log(item)}}
+          contentContainerStyle={{paddingHorizontal: 16}}
         />
     )
        
@@ -62,19 +63,18 @@ const Slider=()=>{
 
 const styles = StyleSheet.create({
     videoContainer: {
-      width: 405,
+      width: 300,
       paddingVertical: 28,
       justifyContent: 'center',
       alignItems: 'center',
-      marginRight: 10,
-      marginLeft:5
+      marginRight: 20,
     },
     videoPreview: {
-      width: 360,
+      width: 300,
       height: 155,
       borderRadius: 8,
       resizeMode: 'cover',
-      paddingLeft:10,
+      
     },
     imageContainer: {
       justifyContent: 'center',

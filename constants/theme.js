@@ -26,6 +26,7 @@ export const SIZES = {
     padding: 10,
     padding2: 12,
     paddingText: 5,
+    paddingText1: 3,
 
     largeTitle: 50,
     h1: 30,

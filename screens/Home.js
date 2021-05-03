@@ -339,13 +339,12 @@ const Home = ({ navigation }) => {
 
     const RenderHeader =() =>{
         return (
-            <View style={{ flexDirection: 'row', height: 70,backgroundColor:COLORS.white,paddingTop:10 }}>
+            <View style={{ flexDirection: 'row',paddingVertical:SIZES.paddingText*3,justifyContent:'space-between', paddingHorizontal:SIZES.padding,height: 80,backgroundColor:COLORS.white }}>
                 <TouchableOpacity
                     style={{
-                        width: '73%',
-                        paddingLeft: SIZES.padding,
                         justifyContent: 'center',
-                        display:'flex'
+                        display:'flex',
+                        paddingTop:SIZES.padding
                     }}
                 >
                     <View style={{display:'flex',flexDirection:'row'}}>
@@ -354,13 +353,14 @@ const Home = ({ navigation }) => {
                             resizeMode="contain"
                             style={{
                                 width: 30,
-                                height: 30
+                                height: 25,
+                                marginTop:4
                             }}
                         />
-                        <Text style={{fontSize:SIZES.h2,paddingLeft:10,fontWeight:'bold'}}>Home</Text>
+                        <Text style={{fontSize:SIZES.h3,paddingLeft:10,fontWeight:'bold'}}>Home</Text>
                     </View>
                     <Text style={{
-                            paddingTop:5,
+                            paddingTop:0,
                             ...FONTS.body3,
                             paddingLeft:10,
                             paddingBottom:10
@@ -369,10 +369,10 @@ const Home = ({ navigation }) => {
 
                 <TouchableOpacity
                     style={{
-                        paddingRight: SIZES.padding * 2,
                         justifyContent: 'center',
                         display:'flex',
-                        flexDirection:'row'
+                        flexDirection:'row',
+                        paddingRight:SIZES.paddingText
                     }}
                 >
                     <View>
@@ -395,22 +395,22 @@ const Home = ({ navigation }) => {
         return(
             <View style={styles.mainCont}>
                 <View style={styles.cont}>
-                    <View style={{width:'58%',paddingLeft:SIZES.padding}}>
-                        <Text style={{...FONTS.h1,fontWeight:'bold',opacity:0.8}}>Big Brands Great Discounts</Text>
-                        <Text style={{...FONTS.h3,paddingTop:SIZES.padding}}>Up to <Text style={{...FONTS.h2,opacity:0.8,fontWeight:'bold'}}>60% OFF</Text> on the best of brands & more!</Text>
+                    <View style={{width:'63%',paddingLeft:SIZES.padding}}>
+                        <Text style={{...FONTS.h2,fontWeight:'bold',opacity:0.8}}>Big Brands Great Discounts</Text>
+                        <Text style={{...FONTS.h4,paddingTop:SIZES.padding}}>Up to <Text style={{...FONTS.h2,opacity:0.8,fontWeight:'bold'}}>60% OFF</Text> on the best of brands & more!</Text>
+                        <TouchableOpacity >
+                            <Text style={styles.button}>ORDER NOW!</Text>
+                        </TouchableOpacity>
                     </View>
                     <Image
                         source={icons.drink}
                         resizeMode="contain"
                         style={{
-                            width: 200,
-                            height: 100
+                            width: 160,
+                            height: 230
                         }}
                     />
                 </View>
-                <TouchableOpacity>
-                    <Text style={styles.button}>ORDER NOW!</Text>
-                </TouchableOpacity>
             </View>
         )
     }
@@ -438,13 +438,13 @@ const Home = ({ navigation }) => {
                             name="thumbs-o-up" 
                             size={25} 
                             style={{
-                                paddingTop:SIZES.padding2,
+                                paddingTop:SIZES.paddingText,
                                 paddingLeft:10
                             }} 
                             color='black'
                         />
                     </View>
-                    <Text style={{fontSize:SIZES.h1,paddingLeft:SIZES.padding2,fontWeight:'bold'}}>Top Picks For You</Text>
+                    <Text style={{fontSize:SIZES.h2,paddingLeft:SIZES.padding2,fontWeight:'bold'}}>Top Picks For You</Text>
                 </View>
                 <FlatList
                     data={restaurants}
@@ -531,7 +531,7 @@ const Home = ({ navigation }) => {
                 }}>
                     <View style={{paddingLeft:SIZES.padding*2,paddingTop:SIZES.padding*3}}>
                         <Text style={{color:COLORS.white,...FONTS.h1,fontWeight:'bold',opacity:0.8}}>Restaurants</Text>
-                        <Text style={{...FONTS.h3,color:COLORS.white,paddingTop:SIZES.padding}}>No-contact delivery available</Text>
+                        <Text style={{...FONTS.body4,color:COLORS.white,paddingTop:SIZES.padding}}>No-contact delivery available</Text>
                     </View>
                     <TouchableOpacity style={{display:'flex',flexDirection:'row',paddingTop:5,position:'absolute',bottom:0,width:'100%',height:40,backgroundColor:COLORS.darkOrange,borderBottomLeftRadius:10,borderBottomRightRadius:10}}>
                         <Text style={{color:COLORS.white,paddingLeft:SIZES.padding*2,fontSize:SIZES.h3}}>View All</Text>
@@ -555,12 +555,12 @@ const Home = ({ navigation }) => {
 
     const RenderRestaurantList=()=> {
         const renderItem = ({ item }) => (
-            <CustomCard item={item} categories={categories} navigation={navigation}/>
+            <CustomCard item={item} categories={categories} navigation={navigation} vertical={true}/>
         )
 
         return (
             <View style={{paddingBottom:SIZES.padding2*5,backgroundColor:COLORS.white}}>
-                <View style={{paddingHorizontal:SIZES.padding*2,backgroundColor:COLORS.white,paddingBottom:SIZES.padding}}>
+                <View style={{paddingHorizontal:SIZES.padding*2,backgroundColor:COLORS.white,paddingBottom:SIZES.padding*2}}>
                     <Text style={{...FONTS.h2,fontWeight:'bold'}}>All Restaurants Nearby</Text>
                     <Text style={{...FONTS.h4,paddingTop:SIZES.paddingText}}>Discover unique tastes near you</Text>
                 </View>
@@ -610,14 +610,14 @@ const Home = ({ navigation }) => {
     const RenderFreeDelivery=()=> {
         const renderItem = ({ item }) => (
             <View>
-                <CustomCard item={item} categories={categories} navigation={navigation}/>
-                <CustomCard item={item} categories={categories} navigation={navigation}/>
+                <CustomCard item={item} categories={categories} navigation={navigation} vertical={false}/>
+                <CustomCard item={item} categories={categories} navigation={navigation} vertical={false}/>
             </View>
         )
 
         return (
             <View style={{backgroundColor:COLORS.white}}>
-                <View style={{display:'flex',flexDirection:'row',justifyContent:'space-around'}}>
+                <View style={{display:'flex',flexDirection:'row',paddingHorizontal:SIZES.padding*2,justifyContent:'space-between'}}>
                     <View>
                         <View
                             style={{
@@ -637,7 +637,7 @@ const Home = ({ navigation }) => {
                             />
                             <Text style={{...FONTS.h2,fontWeight:'bold'}}>Free Delivery</Text>
                         </View>
-                        <Text style={{...FONTS.h4,paddingTop:SIZES.paddingText}}>Delicious Tastes, Delivered Free</Text>
+                        <Text style={{...FONTS.body4,paddingTop:SIZES.paddingText}}>Delicious Tastes, Delivered Free</Text>
                     </View>
                     <View>
                         <TouchableOpacity
@@ -646,13 +646,13 @@ const Home = ({ navigation }) => {
                                 flexDirection:'row'
                             }}
                         >
-                            <Text style={{...FONTS.h4,fontWeight:'bold',paddingTop:7}}>SEE ALL</Text>
+                            <Text style={{...FONTS.body3,fontWeight:'bold',paddingTop:7}}>SEE ALL</Text>
                             <Icon 
                                 name="chevron-circle-right" 
                                 size={25} 
                                 style={{
                                     paddingTop:SIZES.paddingText,
-                                    paddingLeft:SIZES.paddingText*3
+                                    paddingLeft:SIZES.paddingText*2
                                 }} 
                                 color={COLORS.primary}
                             />
@@ -666,6 +666,10 @@ const Home = ({ navigation }) => {
                     contentContainerStyle={{ paddingVertical: SIZES.padding * 2 }}
                     keyExtractor={item => `${item.id}`}
                     renderItem={renderItem}
+                    contentContainerStyle={{ 
+                        paddingVertical: SIZES.padding * 2,
+                        paddingHorizontal:SIZES.padding
+                    }}
                 />
             </View>
         )
@@ -717,17 +721,14 @@ const styles = StyleSheet.create({
         paddingBottom:20
     },
     button:{
-        width:160,
-        height:40,
+        width:180,
+        height:55,
         borderRadius:10,
         color:COLORS.primary,
         borderColor:COLORS.darkgray,
-        borderWidth:1,
-        marginLeft:SIZES.padding*2,
-        fontSize:SIZES.h2,
-        alignItems:'center',
-        justifyContent:'center',
-        paddingTop:4,
+        borderWidth:2,
+        fontSize:SIZES.h3,
+        paddingTop:10,
         textAlign:'center',
         fontWeight:'bold'
     }

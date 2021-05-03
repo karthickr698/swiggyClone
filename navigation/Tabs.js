@@ -74,7 +74,7 @@ const Tabs = () => {
                                     alignSelf:'center'
                                 }}
                             />
-                            <Text style={{paddingTop:10,color: focused ? COLORS.primary : COLORS.darkgray,}}>SWIGGY</Text>
+                            <Text style={{paddingTop:10,color: focused ? COLORS.primary : COLORS.darkgray,fontSize:SIZES.body5}}>SWIGGY</Text>
 
                         </View>
                     ),
@@ -101,7 +101,7 @@ const Tabs = () => {
                                     alignSelf:'center'
                                 }}
                             />
-                            <Text style={{paddingTop:10,color: focused ? COLORS.primary : COLORS.darkgray,}}>SEARCH</Text>
+                            <Text style={{paddingTop:10,fontSize:SIZES.body5,color: focused ? COLORS.primary : COLORS.darkgray,}}>SEARCH</Text>
                         </View>
                     ),
 
@@ -128,7 +128,7 @@ const Tabs = () => {
                                     alignSelf:'center'
                                 }}
                             />
-                            <Text style={{paddingTop:10,color: focused ? COLORS.primary : COLORS.darkgray,}}>LIKES</Text>
+                            <Text style={{paddingTop:10,fontSize:SIZES.body5,color: focused ? COLORS.primary : COLORS.darkgray,}}>LIKES</Text>
                         </View>
                     ),
                     tabBarButton: (props) => (
@@ -154,7 +154,7 @@ const Tabs = () => {
                                     alignSelf:'center'
                                 }}
                             />
-                            <Text style={{paddingTop:10,color: focused ? COLORS.primary : COLORS.darkgray,}}>ACCOUNT</Text>
+                            <Text style={{paddingTop:10,fontSize:SIZES.body5,color: focused ? COLORS.primary : COLORS.darkgray,}}>ACCOUNT</Text>
                         </View>
                     ),
                     tabBarButton: (props) => (
